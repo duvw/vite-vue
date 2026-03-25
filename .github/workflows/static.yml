@@ -1,5 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy project vite-react
 
 on:
   # Runs on pushes targeting the default branch
@@ -23,8 +22,9 @@ jobs:
           host: ${{secrets.VPS_HOST}}
           username: ${{secrets.VPS_USER}}
           key: ${{secrets.VPS_SSH_KEY}}
-        script: |
-          cd /var/www/vite-react
-          git pull origin main
-          npm install
-          npm run build
+          port: ${{secrets.VPS_SSH_PORT}}
+          script: |
+            cd /var/www/vite-vue
+            git pull origin main
+            npm install
+            npm run build
